@@ -1,0 +1,198 @@
+.element {
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        .element:hover {
+            transform: scale(1.1);
+            z-index: 10;
+            box-shadow: 0 0 20px rgb(255, 0, 0);
+        }
+        .info-card {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        .element:hover .info-card {
+            opacity: 1;
+            visibility: visible;
+        }
+        .filter-btn.active {
+            background-color: #5d8cd7;
+            color: rgb(0, 0, 0);
+        }
+        .lanthanide, .actinide {
+            background-color: #eadc74;
+        }
+        .alkali-metal {
+            background-color: #eeacac;
+        }
+        .alkaline-earth {
+            background-color: #b8864e;
+        }
+        .transition-metal {
+            background-color: #4d97f0;
+        }
+        .post-transition-metal {
+            background-color: #6cf8b7;
+        }
+        .metalloid {
+            background-color: #445fe8;
+        }
+        .nonmetal {
+            background-color: #7884b4;
+        }
+        .noble-gas {
+            background-color: #b782f0;
+        }
+        .unknown {
+            background-color: #667da0;
+        }
+                
+        
+        .bg-gray-100 {
+            background-image: url(img/blur6.jpg);
+            background-size: cover;
+            margin-left: 10px;
+            width: 85%;
+            height: 203vh;
+            
+        }
+        .periodic-table {
+            width: 110%;
+            margin-left: 18px;
+        }
+        .periodic-table.grid.grid-cols-18.gap-1 {
+            margin-bottom: 70px;
+
+        }
+        .lanthanide-actinide-container {
+            margin-left: 150px;
+        }
+        .text-center.mb-8{
+            margin-left: 110px;
+        }
+
+        .bg-red.rounded-lg.shadow-lg.p-6.mb-8{
+            margin-right: -50px;
+            margin-left: 100px;
+            color: white;   
+        }
+
+            
+        .mt-12{
+            font-weight: 500;
+            font-size: 18px;
+            margin-right: -155px;
+            margin-top: 66px;
+        }
+        .handle{
+            font-size: 25px;
+            font-weight: 500;
+            margin-left: 10px;
+        }
+        .social-icons{
+            margin-top: 10px;
+            margin-left: 70px;
+            margin-bottom: 20px;
+        }
+        .social-icons a{
+            text-decoration: none;
+            font-size: 40px;
+            margin-right: 30px;
+            display: inline-block;
+            transition: transform 0.5s;
+            margin-left:20px;
+            margin-top: 20px;
+        }
+        .social-icons a:hover{
+            color: #15ff00;
+            transform: translateY(-10px);
+        }
+        /* -------------------for mobile-------------------- */
+
+
+     @media only screen and (max-width: 600px) {
+    .bg-gray-100 {
+        background-image: url(img/blur6.jpg);
+        background-size: cover;
+        text-align: center;
+        margin-left: 0;
+        width: 100vw;
+        height: auto;
+        min-height: 100vh;
+    }
+    .periodic-table {
+        min-width: 600px ;
+        max-width: 100vw ;
+        width: 100vw ;
+        overflow-x: auto ;
+        padding: 0 ;
+        margin-left: 0 ;
+    }
+    .periodic-table.grid.grid-cols-18.gap-1 {
+        gap: 2px ;
+        margin-bottom: 20px ;
+    }
+    .lanthanide-actinide-container {
+        min-width: 600px;
+        max-width: 100vw ;
+        margin-left: 0 ;
+        gap: 2px;
+    }
+    .element {
+        min-width: 28px ;
+        min-height: 28px ;
+        max-width: 32px ;
+        max-height: 32px ;
+        font-size: 0.7rem ;
+        padding: 1px ;
+        border-radius: 0.25rem ;
+        box-sizing: border-box ;
+        position: relative;
+        overflow: visible ;
+    }
+    .element .text-xs,
+    .element .text-xl,
+    .element .text-lg {
+        font-size: 0.7rem ;
+    }
+    .element .info-card {
+        width: 90vw ;
+        min-width: 0 ;
+        left: 50% ;
+        transform: translateX(-50%) ;
+        font-size: 0.75rem ;
+        padding: 0.5rem;
+        position: absolute ;
+        top: 110% ;
+        z-index: 50 ;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        background: rgba(255,255,255,0.97);
+        border-radius: 0.5rem;
+        display: block;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.2s;
+        max-width: 320px ;
+        word-break: break-word;
+    }
+    .element:hover .info-card,
+    .element:focus-within .info-card {
+        opacity: 1 ;
+        visibility: visible ;
+    }
+
+    
+ .relative.w-full.mb-2,
+    .relative.w-full.mb-2 > div,
+    .relative.w-full.mb-1,
+    .relative.w-full.mb-1 > div {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        min-height: 0 !important;
+        max-height: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+}

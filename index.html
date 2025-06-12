@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Periodic Table</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/2566f1417c.js" crossorigin="anonymous"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <header class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-blue-800 mb-2"> Modern Periodic Table</h1>
+            <p class="text-gray-400">Explore all the elements of our universe</p>
+        </header>
+
+        <div class="bg-red rounded-lg shadow-lg p-6 mb-8">
+            <div class="flex flex-wrap justify-center gap-2 mb-6">
+                <button class="filter-btn active px-4 py-2 rounded-full border border-gray-300 hover:bg-blue-100 transition" data-category="all">All</button>
+                <button class="filter-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-red-100 transition" data-category="alkali-metal">Alkali Metals</button>
+                <button class="filter-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-orange-100 transition" data-category="alkaline-earth">Alkaline Earth</button>
+                <button class="filter-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-blue-100 transition" data-category="transition-metal">Transition Metals</button>
+                <button class="filter-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-green-100 transition" data-category="post-transition-metal">Post-Transition</button>
+                <button class="filter-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-indigo-100 transition" data-category="metalloid">Metalloids</button>
+                <button class="filter-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-purple-100 transition" data-category="nonmetal">Nonmetals</button>
+                <button class="filter-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-pink-100 transition" data-category="noble-gas">Noble Gases</button>
+                <button class="filter-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-yellow-100 transition" data-category="lanthanide">Lanthanides</button>
+                <button class="filter-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-yellow-100 transition" data-category="actinide">Actinides</button>
+            </div>
+
+            <div class="flex justify-center mb-4">
+                <div class="relative w-full max-w-2xl">
+                    <input type="text" id="searchInput" placeholder="Search elements by name, symbol, or atomic number..." class="w-full px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <i class="fas fa-search absolute right-3 top-3 text-gray-400"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- S, D, P block labels with lines -->
+<div class="relative w-full mb-2" style="height: 40px;">
+  <!-- S block -->
+  <div class="absolute left-4 top-0 flex flex-col items-center" style="width: 12.1%; ">
+    <span class="text-xl font-bold text-blue-700">S-block</span>
+    <div class="w-full border-t-4 border-blue-400 mt-1"></div>
+  </div>
+  <!-- D block -->
+  <div class="absolute left-[14.7%] top-20 flex flex-col items-center" style="width: 59.4%; margin-top: 120px;">
+    <span class="text-2xl font-bold text-green-700">d-block</span>
+    <div class="w-full border-t-4 border-green-400 mt-1"></div>
+  </div>
+  <!-- P block -->
+  <div class="absolute right-0 top-0 flex flex-col items-center" style="width: 36.3%; margin-right: -115px;">
+    <span class="text-2xl font-bold text-pink-700">p-block</span>
+    <div class="w-full border-t-4 border-pink-400 mt-1"></div>
+  </div>
+</div>
+<!-- Main Table -->
+<div class="effect">
+    <div class="periodic-table grid grid-cols-18 gap-1 mb-4" style="grid-template-columns: repeat(18, minmax(0, 1fr));">
+        <!-- Elements will be inserted here by JavaScript -->
+    </div>
+    <!-- F block label and line -->
+    <div class="relative w-full mb-1" style="height: 32px;">
+      <div class="absolute left-[15%] top-0 flex flex-col items-center" style="width: 85%; margin-top: -15px;">
+        <span class="text-2xl font-bold text-yellow-500">f-block</span>
+        <div class="w-full border-t-4 border-yellow-300 mt-1"></div>
+      </div>
+    </div>
+    <div class="lanthanide-actinide-container grid grid-cols-15 gap-1"
+         style="grid-template-columns: repeat(15, minmax(0, 1fr)); grid-template-rows: repeat(2, minmax(0, 1fr));">
+        <!-- These will be inserted by JavaScript -->
+    </div>
+</div>
+
+        <footer class="text-center mt-12 text-gray-500 text-sm">
+            <p class="handle">Connect With Creater</p>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/ayush-kumar-singh-68037a330?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/a.k_singh027?igsh=MXEwdTZnZ3IweW1zag=="><i class="fa-brands fa-square-instagram"></i></a>
+                    <a href=""><i class="fa-brands fa-square-x-twitter"></i></a>
+                    <!-- <a href=""><i class="fa-brands fa-facebook"></i></a> -->
+                    <a href="https://github.com/AK-Singh027"> <i class="fa-brands fa-square-github"></i></a>
+                    <a href=""></a>
+                </div>
+            
+            <p>Data sourced from the International Union of Pure and Applied Chemistry (IUPAC)</p>
+            <p class="mt-2">© 2025 Interactive Periodic Table. Made By A.K Singh</p>
+        </footer>
+    </div>
+
+    <script>
+                document.addEventListener('DOMContentLoaded', function() {
+            // Periodic table data
+            const elements = [
+                // Period 1
+                { number: 1, symbol: 'H', name: 'Hydrogen', mass: '1.008', category: 'nonmetal', group: 1, period: 1, electron: '1s¹', electronegativity: 2.20, density: 0.08988, melt: 14.01, boil: 20.28 },
+                { number: 2, symbol: 'He', name: 'Helium', mass: '4.0026', category: 'noble-gas', group: 18, period: 1, electron: '1s²', electronegativity: null, density: 0.1786, melt: 0.95, boil: 4.22 },
+                
+                // Period 2
+                { number: 3, symbol: 'Li', name: 'Lithium', mass: '6.94', category: 'alkali-metal', group: 1, period: 2, electron: '[He] 2s¹', electronegativity: 0.98, density: 0.534, melt: 453.69, boil: 1560 },
+                { number: 4, symbol: 'Be', name: 'Beryllium', mass: '9.0122', category: 'alkaline-earth', group: 2, period: 2, electron: '[He] 2s²', electronegativity: 1.57, density: 1.85, melt: 1560, boil: 2742 },
+                { number: 5, symbol: 'B', name: 'Boron', mass: '10.81', category: 'metalloid', group: 13, period: 2, electron: '[He] 2s² 2p¹', electronegativity: 2.04, density: 2.34, melt: 2349, boil: 4200 },
+                { number: 6, symbol: 'C', name: 'Carbon', mass: '12.011', category: 'nonmetal', group: 14, period: 2, electron: '[He] 2s² 2p²', electronegativity: 2.55, density: 2.267, melt: 3800, boil: 4300 },
+                { number: 7, symbol: 'N', name: 'Nitrogen', mass: '14.007', category: 'nonmetal', group: 15, period: 2, electron: '[He] 2s² 2p³', electronegativity: 3.04, density: 1.2506, melt: 63.15, boil: 77.36 },
+                { number: 8, symbol: 'O', name: 'Oxygen', mass: '15.999', category: 'nonmetal', group: 16, period: 2, electron: '[He] 2s² 2p⁴', electronegativity: 3.44, density: 1.429, melt: 54.36, boil: 90.20 },
+                { number: 9, symbol: 'F', name: 'Fluorine', mass: '18.998', category: 'nonmetal', group: 17, period: 2, electron: '[He] 2s² 2p⁵', electronegativity: 3.98, density: 1.696, melt: 53.53, boil: 85.03 },
+                { number: 10, symbol: 'Ne', name: 'Neon', mass: '20.180', category: 'noble-gas', group: 18, period: 2, electron: '[He] 2s² 2p⁶', electronegativity: null, density: 0.9002, melt: 24.56, boil: 27.07 },
+                
+                // Period 3
+                { number: 11, symbol: 'Na', name: 'Sodium', mass: '22.990', category: 'alkali-metal', group: 1, period: 3, electron: '[Ne] 3s¹', electronegativity: 0.93, density: 0.968, melt: 370.87, boil: 1156 },
+                { number: 12, symbol: 'Mg', name: 'Magnesium', mass: '24.305', category: 'alkaline-earth', group: 2, period: 3, electron: '[Ne] 3s²', electronegativity: 1.31, density: 1.738, melt: 923, boil: 1363 },
+                { number: 13, symbol: 'Al', name: 'Aluminum', mass: '26.982', category: 'post-transition-metal', group: 13, period: 3, electron: '[Ne] 3s² 3p¹', electronegativity: 1.61, density: 2.70, melt: 933.47, boil: 2792 },
+                { number: 14, symbol: 'Si', name: 'Silicon', mass: '28.085', category: 'metalloid', group: 14, period: 3, electron: '[Ne] 3s² 3p²', electronegativity: 1.90, density: 2.3290, melt: 1687, boil: 3538 },
+                { number: 15, symbol: 'P', name: 'Phosphorus', mass: '30.974', category: 'nonmetal', group: 15, period: 3, electron: '[Ne] 3s² 3p³', electronegativity: 2.19, density: 1.82, melt: 317.30, boil: 553.7 },
+                { number: 16, symbol: 'S', name: 'Sulfur', mass: '32.06', category: 'nonmetal', group: 16, period: 3, electron: '[Ne] 3s² 3p⁴', electronegativity: 2.58, density: 2.067, melt: 388.36, boil: 717.87 },
+                { number: 17, symbol: 'Cl', name: 'Chlorine', mass: '35.45', category: 'nonmetal', group: 17, period: 3, electron: '[Ne] 3s² 3p⁵', electronegativity: 3.16, density: 3.214, melt: 171.6, boil: 239.11 },
+                { number: 18, symbol: 'Ar', name: 'Argon', mass: '39.948', category: 'noble-gas', group: 18, period: 3, electron: '[Ne] 3s² 3p⁶', electronegativity: null, density: 1.784, melt: 83.80, boil: 87.30 },
+                
+                // Period 4
+                { number: 19, symbol: 'K', name: 'Potassium', mass: '39.098', category: 'alkali-metal', group: 1, period: 4, electron: '[Ar] 4s¹', electronegativity: 0.82, density: 0.89, melt: 336.53, boil: 1032 },
+                { number: 20, symbol: 'Ca', name: 'Calcium', mass: '40.078', category: 'alkaline-earth', group: 2, period: 4, electron: '[Ar] 4s²', electronegativity: 1.00, density: 1.55, melt: 1115, boil: 1757 },
+                { number: 21, symbol: 'Sc', name: 'Scandium', mass: '44.956', category: 'transition-metal', group: 3, period: 4, electron: '[Ar] 3d¹ 4s²', electronegativity: 1.36, density: 2.985, melt: 1814, boil: 3109 },
+                { number: 22, symbol: 'Ti', name: 'Titanium', mass: '47.867', category: 'transition-metal', group: 4, period: 4, electron: '[Ar] 3d² 4s²', electronegativity: 1.54, density: 4.506, melt: 1941, boil: 3560 },
+                { number: 23, symbol: 'V', name: 'Vanadium', mass: '50.942', category: 'transition-metal', group: 5, period: 4, electron: '[Ar] 3d³ 4s²', electronegativity: 1.63, density: 6.11, melt: 2183, boil: 3680 },
+                { number: 24, symbol: 'Cr', name: 'Chromium', mass: '51.996', category: 'transition-metal', group: 6, period: 4, electron: '[Ar] 3d⁵ 4s¹', electronegativity: 1.66, density: 7.15, melt: 2180, boil: 2944 },
+                { number: 25, symbol: 'Mn', name: 'Manganese', mass: '54.938', category: 'transition-metal', group: 7, period: 4, electron: '[Ar] 3d⁵ 4s²', electronegativity: 1.55, density: 7.44, melt: 1519, boil: 2334 },
+                { number: 26, symbol: 'Fe', name: 'Iron', mass: '55.845', category: 'transition-metal', group: 8, period: 4, electron: '[Ar] 3d⁶ 4s²', electronegativity: 1.83, density: 7.874, melt: 1811, boil: 3134 },
+                { number: 27, symbol: 'Co', name: 'Cobalt', mass: '58.933', category: 'transition-metal', group: 9, period: 4, electron: '[Ar] 3d⁷ 4s²', electronegativity: 1.88, density: 8.86, melt: 1768, boil: 3200 },
+                { number: 28, symbol: 'Ni', name: 'Nickel', mass: '58.693', category: 'transition-metal', group: 10, period: 4, electron: '[Ar] 3d⁸ 4s²', electronegativity: 1.91, density: 8.912, melt: 1728, boil: 3186 },
+                { number: 29, symbol: 'Cu', name: 'Copper', mass: '63.546', category: 'transition-metal', group: 11, period: 4, electron: '[Ar] 3d¹⁰ 4s¹', electronegativity: 1.90, density: 8.96, melt: 1357.77, boil: 2835 },
+                { number: 30, symbol: 'Zn', name: 'Zinc', mass: '65.38', category: 'transition-metal', group: 12, period: 4, electron: '[Ar] 3d¹⁰ 4s²', electronegativity: 1.65, density: 7.134, melt: 692.88, boil: 1180 },
+                { number: 31, symbol: 'Ga', name: 'Gallium', mass: '69.723', category: 'post-transition-metal', group: 13, period: 4, electron: '[Ar] 3d¹⁰ 4s² 4p¹', electronegativity: 1.81, density: 5.907, melt: 302.9146, boil: 2477 },
+                { number: 32, symbol: 'Ge', name: 'Germanium', mass: '72.630', category: 'metalloid', group: 14, period: 4, electron: '[Ar] 3d¹⁰ 4s² 4p²', electronegativity: 2.01, density: 5.323, melt: 1211.40, boil: 3106 },
+                { number: 33, symbol: 'As', name: 'Arsenic', mass: '74.922', category: 'metalloid', group: 15, period: 4, electron: '[Ar] 3d¹⁰ 4s² 4p³', electronegativity: 2.18, density: 5.776, melt: 1090, boil: 887 },
+                { number: 34, symbol: 'Se', name: 'Selenium', mass: '78.971', category: 'nonmetal', group: 16, period: 4, electron: '[Ar] 3d¹⁰ 4s² 4p⁴', electronegativity: 2.55, density: 4.809, melt: 494, boil: 958 },
+                { number: 35, symbol: 'Br', name: 'Bromine', mass: '79.904', category: 'nonmetal', group: 17, period: 4, electron: '[Ar] 3d¹⁰ 4s² 4p⁵', electronegativity: 2.96, density: 3.122, melt: 265.8, boil: 332.0 },
+                { number: 36, symbol: 'Kr', name: 'Krypton', mass: '83.798', category: 'noble-gas', group: 18, period: 4, electron: '[Ar] 3d¹⁰ 4s² 4p⁶', electronegativity: 3.00, density: 3.749, melt: 115.79, boil: 119.93 },
+                
+                // Period 5
+                { number: 37, symbol: 'Rb', name: 'Rubidium', mass: '85.468', category: 'alkali-metal', group: 1, period: 5, electron: '[Kr] 5s¹', electronegativity: 0.82, density: 1.532, melt: 312.46, boil: 961 },
+                { number: 38, symbol: 'Sr', name: 'Strontium', mass: '87.62', category: 'alkaline-earth', group: 2, period: 5, electron: '[Kr] 5s²', electronegativity: 0.95, density: 2.64, melt: 1050, boil: 1655 },
+                { number: 39, symbol: 'Y', name: 'Yttrium', mass: '88.906', category: 'transition-metal', group: 3, period: 5, electron: '[Kr] 4d¹ 5s²', electronegativity: 1.22, density: 4.469, melt: 1799, boil: 3609 },
+                { number: 40, symbol: 'Zr', name: 'Zirconium', mass: '91.224', category: 'transition-metal', group: 4, period: 5, electron: '[Kr] 4d² 5s²', electronegativity: 1.33, density: 6.506, melt: 2128, boil: 4682 },
+                { number: 41, symbol: 'Nb', name: 'Niobium', mass: '92.906', category: 'transition-metal', group: 5, period: 5, electron: '[Kr] 4d⁴ 5s¹', electronegativity: 1.6, density: 8.57, melt: 2750, boil: 5017 },
+                { number: 42, symbol: 'Mo', name: 'Molybdenum', mass: '95.95', category: 'transition-metal', group: 6, period: 5, electron: '[Kr] 4d⁵ 5s¹', electronegativity: 2.16, density: 10.22, melt: 2896, boil: 4912 },
+                { number: 43, symbol: 'Tc', name: 'Technetium', mass: '(98)', category: 'transition-metal', group: 7, period: 5, electron: '[Kr] 4d⁵ 5s²', electronegativity: 1.9, density: 11.5, melt: 2430, boil: 4538 },
+                { number: 44, symbol: 'Ru', name: 'Ruthenium', mass: '101.07', category: 'transition-metal', group: 8, period: 5, electron: '[Kr] 4d⁷ 5s¹', electronegativity: 2.2, density: 12.37, melt: 2607, boil: 4423 },
+                { number: 45, symbol: 'Rh', name: 'Rhodium', mass: '102.91', category: 'transition-metal', group: 9, period: 5, electron: '[Kr] 4d⁸ 5s¹', electronegativity: 2.28, density: 12.41, melt: 2237, boil: 3968 },
+                { number: 46, symbol: 'Pd', name: 'Palladium', mass: '106.42', category: 'transition-metal', group: 10, period: 5, electron: '[Kr] 4d¹⁰', electronegativity: 2.20, density: 12.02, melt: 1828.05, boil: 3236 },
+                { number: 47, symbol: 'Ag', name: 'Silver', mass: '107.87', category: 'transition-metal', group: 11, period: 5, electron: '[Kr] 4d¹⁰ 5s¹', electronegativity: 1.93, density: 10.501, melt: 1234.93, boil: 2435 },
+                { number: 48, symbol: 'Cd', name: 'Cadmium', mass: '112.41', category: 'transition-metal', group: 12, period: 5, electron: '[Kr] 4d¹⁰ 5s²', electronegativity: 1.69, density: 8.69, melt: 594.22, boil: 1040 },
+                { number: 49, symbol: 'In', name: 'Indium', mass: '114.82', category: 'post-transition-metal', group: 13, period: 5, electron: '[Kr] 4d¹⁰ 5s² 5p¹', electronegativity: 1.78, density: 7.31, melt: 429.75, boil: 2345 },
+                { number: 50, symbol: 'Sn', name: 'Tin', mass: '118.71', category: 'post-transition-metal', group: 14, period: 5, electron: '[Kr] 4d¹⁰ 5s² 5p²', electronegativity: 1.96, density: 7.287, melt: 505.08, boil: 2875 },
+                { number: 51, symbol: 'Sb', name: 'Antimony', mass: '121.76', category: 'metalloid', group: 15, period: 5, electron: '[Kr] 4d¹⁰ 5s² 5p³', electronegativity: 2.05, density: 6.685, melt: 903.78, boil: 1860 },
+                { number: 52, symbol: 'Te', name: 'Tellurium', mass: '127.60', category: 'metalloid', group: 16, period: 5, electron: '[Kr] 4d¹⁰ 5s² 5p⁴', electronegativity: 2.1, density: 6.232, melt: 722.66, boil: 1261 },
+                { number: 53, symbol: 'I', name: 'Iodine', mass: '126.90', category: 'nonmetal', group: 17, period: 5, electron: '[Kr] 4d¹⁰ 5s² 5p⁵', electronegativity: 2.66, density: 4.93, melt: 386.85, boil: 457.4 },
+                { number: 54, symbol: 'Xe', name: 'Xenon', mass: '131.29', category: 'noble-gas', group: 18, period: 5, electron: '[Kr] 4d¹⁰ 5s² 5p⁶', electronegativity: 2.6, density: 5.894, melt: 161.4, boil: 165.03 },
+                
+                // Period 6
+                { number: 55, symbol: 'Cs', name: 'Cesium', mass: '132.91', category: 'alkali-metal', group: 1, period: 6, electron: '[Xe] 6s¹', electronegativity: 0.79, density: 1.93, melt: 301.59, boil: 944 },
+                { number: 56, symbol: 'Ba', name: 'Barium', mass: '137.33', category: 'alkaline-earth', group: 2, period: 6, electron: '[Xe] 6s²', electronegativity: 0.89, density: 3.51, melt: 1000, boil: 2170 },
+                { number: 57, symbol: 'La', name: 'Lanthanum', mass: '138.91', category: 'lanthanide', group: 3, period: 6, electron: '[Xe] 5d¹ 6s²', electronegativity: 1.10, density: 6.15, melt: 1193, boil: 3737 },
+                { number: 72, symbol: 'Hf', name: 'Hafnium', mass: '178.49', category: 'transition-metal', group: 4, period: 6, electron: '[Xe] 4f¹⁴ 5d² 6s²', electronegativity: 1.3, density: 13.31, melt: 2506, boil: 4876 },
+                { number: 73, symbol: 'Ta', name: 'Tantalum', mass: '180.95', category: 'transition-metal', group: 5, period: 6, electron: '[Xe] 4f¹⁴ 5d³ 6s²', electronegativity: 1.5, density: 16.65, melt: 3290, boil: 5731 },
+                { number: 74, symbol: 'W', name: 'Tungsten', mass: '183.84', category: 'transition-metal', group: 6, period: 6, electron: '[Xe] 4f¹⁴ 5d⁴ 6s²', electronegativity: 2.36, density: 19.25, melt: 3695, boil: 5828 },
+                { number: 75, symbol: 'Re', name: 'Rhenium', mass: '186.21', category: 'transition-metal', group: 7, period: 6, electron: '[Xe] 4f¹⁴ 5d⁵ 6s²', electronegativity: 1.9, density: 21.02, melt: 3459, boil: 5869 },
+                { number: 76, symbol: 'Os', name: 'Osmium', mass: '190.23', category: 'transition-metal', group: 8, period: 6, electron: '[Xe] 4f¹⁴ 5d⁶ 6s²', electronegativity: 2.2, density: 22.59, melt: 3306, boil: 5285 },
+                { number: 77, symbol: 'Ir', name: 'Iridium', mass: '192.22', category: 'transition-metal', group: 9, period: 6, electron: '[Xe] 4f¹⁴ 5d⁷ 6s²', electronegativity: 2.20, density: 22.56, melt: 2719, boil: 4701 },
+                { number: 78, symbol: 'Pt', name: 'Platinum', mass: '195.08', category: 'transition-metal', group: 10, period: 6, electron: '[Xe] 4f¹⁴ 5d⁹ 6s¹', electronegativity: 2.28, density: 21.45, melt: 2041.4, boil: 4098 },
+                { number: 79, symbol: 'Au', name: 'Gold', mass: '196.97', category: 'transition-metal', group: 11, period: 6, electron: '[Xe] 4f¹⁴ 5d¹⁰ 6s¹', electronegativity: 2.54, density: 19.32, melt: 1337.33, boil: 3129 },
+                { number: 80, symbol: 'Hg', name: 'Mercury', mass: '200.59', category: 'transition-metal', group: 12, period: 6, electron: '[Xe] 4f¹⁴ 5d¹⁰ 6s²', electronegativity: 2.00, density: 13.534, melt: 234.32, boil: 629.88 },
+                { number: 81, symbol: 'Tl', name: 'Thallium', mass: '204.38', category: 'post-transition-metal', group: 13, period: 6, electron: '[Xe] 4f¹⁴ 5d¹⁰ 6s² 6p¹', electronegativity: 1.62, density: 11.85, melt: 577, boil: 1746 },
+                { number: 82, symbol: 'Pb', name: 'Lead', mass: '207.2', category: 'post-transition-metal', group: 14, period: 6, electron: '[Xe] 4f¹⁴ 5d¹⁰ 6s² 6p²', electronegativity: 2.33, density: 11.34, melt: 600.61, boil: 2022 },
+                { number: 83, symbol: 'Bi', name: 'Bismuth', mass: '208.98', category: 'post-transition-metal', group: 15, period: 6, electron: '[Xe] 4f¹⁴ 5d¹⁰ 6s² 6p³', electronegativity: 2.02, density: 9.78, melt: 544.7, boil: 1837 },
+                { number: 84, symbol: 'Po', name: 'Polonium', mass: '(209)', category: 'post-transition-metal', group: 16, period: 6, electron: '[Xe] 4f¹⁴ 5d¹⁰ 6s² 6p⁴', electronegativity: 2.0, density: 9.32, melt: 527, boil: 1235 },
+                { number: 85, symbol: 'At', name: 'Astatine', mass: '(210)', category: 'metalloid', group: 17, period: 6, electron: '[Xe] 4f¹⁴ 5d¹⁰ 6s² 6p⁵', electronegativity: 2.2, density: 7, melt: 575, boil: 610 },
+                { number: 86, symbol: 'Rn', name: 'Radon', mass: '(222)', category: 'noble-gas', group: 18, period: 6, electron: '[Xe] 4f¹⁴ 5d¹⁰ 6s² 6p⁶', electronegativity: 2.2, density: 9.73, melt: 202, boil: 211.3 },
+                
+                // Period 7
+                { number: 87, symbol: 'Fr', name: 'Francium', mass: '(223)', category: 'alkali-metal', group: 1, period: 7, electron: '[Rn] 7s¹', electronegativity: 0.7, density: 1.87, melt: 300, boil: 950 },
+                { number: 88, symbol: 'Ra', name: 'Radium', mass: '(226)', category: 'alkaline-earth', group: 2, period: 7, electron: '[Rn] 7s²', electronegativity: 0.9, density: 5.5, melt: 973, boil: 2010 },
+                { number: 89, symbol: 'Ac', name: 'Actinium', mass: '(227)', category: 'actinide', group: 3, period: 7, electron: '[Rn] 6d¹ 7s²', electronegativity: 1.1, density: 10.07, melt: 1323, boil: 3471 },
+                { number: 104, symbol: 'Rf', name: 'Rutherfordium', mass: '(267)', category: 'transition-metal', group: 4, period: 7, electron: '[Rn] 5f¹⁴ 6d² 7s²', electronegativity: null, density: 23.2, melt: 2400, boil: 5800 },
+                { number: 105, symbol: 'Db', name: 'Dubnium', mass: '(268)', category: 'transition-metal', group: 5, period: 7, electron: '[Rn] 5f¹⁴ 6d³ 7s²', electronegativity: null, density: 29.3, melt: null, boil: null },
+                { number: 106, symbol: 'Sg', name: 'Seaborgium', mass: '(269)', category: 'transition-metal', group: 6, period: 7, electron: '[Rn] 5f¹⁴ 6d⁴ 7s²', electronegativity: null, density: 35.0, melt: null, boil: null },
+                { number: 107, symbol: 'Bh', name: 'Bohrium', mass: '(270)', category: 'transition-metal', group: 7, period: 7, electron: '[Rn] 5f¹⁆ 6d⁵ 7s²', electronegativity: null, density: 37.1, melt: null, boil: null },
+                { number: 108, symbol: 'Hs', name: 'Hassium', mass: '(277)', category: 'transition-metal', group: 8, period: 7, electron: '[Rn] 5f¹⁴ 6d⁶ 7s²', electronegativity: null, density: 40.7, melt: null, boil: null },
+                { number: 109, symbol: 'Mt', name: 'Meitnerium', mass: '(278)', category: 'transition-metal', group: 9, period: 7, electron: '[Rn] 5f¹⁴ 6d⁷ 7s²', electronegativity: null, density: 37.4, melt: null, boil: null },
+                { number: 110, symbol: 'Ds', name: 'Darmstadtium', mass: '(281)', category: 'transition-metal', group: 10, period: 7, electron: '[Rn] 5f¹⁴ 6d⁹ 7s¹', electronegativity: null, density: 34.8, melt: null, boil: null },
+                { number: 111, symbol: 'Rg', name: 'Roentgenium', mass: '(282)', category: 'transition-metal', group: 11, period: 7, electron: '[Rn] 5f¹⁴ 6d¹⁰ 7s¹', electronegativity: null, density: 28.7, melt: null, boil: null },
+                { number: 112, symbol: 'Cn', name: 'Copernicium', mass: '(285)', category: 'transition-metal', group: 12, period: 7, electron: '[Rn] 5f¹⁴ 6d¹⁰ 7s²', electronegativity: null, density: 23.7, melt: null, boil: null },
+                { number: 113, symbol: 'Nh', name: 'Nihonium', mass: '(286)', category: 'post-transition-metal', group: 13, period: 7, electron: '[Rn] 5f¹⁴ 6d¹⁰ 7s² 7p¹', electronegativity: null, density: 16, melt: 700, boil: 1400 },
+                { number: 114, symbol: 'Fl', name: 'Flerovium', mass: '(289)', category: 'post-transition-metal', group: 14, period: 7, electron: '[Rn] 5f¹⁴ 6d¹⁰ 7s² 7p²', electronegativity: null, density: 14, melt: null, boil: null },
+                { number: 115, symbol: 'Mc', name: 'Moscovium', mass: '(290)', category: 'post-transition-metal', group: 15, period: 7, electron: '[Rn] 5f¹⁴ 6d¹⁰ 7s² 7p³', electronegativity: null, density: 13.5, melt: null, boil: null },
+                { number: 116, symbol: 'Lv', name: 'Livermorium', mass: '(293)', category: 'post-transition-metal', group: 16, period: 7, electron: '[Rn] 5f¹⁴ 6d¹⁰ 7s² 7p⁴', electronegativity: null, density: 12.9, melt: null, boil: null },
+                { number: 117, symbol: 'Ts', name: 'Tennessine', mass: '(294)', category: 'unknown', group: 17, period: 7, electron: '[Rn] 5f¹⁴ 6d¹⁰ 7s² 7p⁵', electronegativity: null, density: 7.2, melt: null, boil: null },
+                { number: 118, symbol: 'Og', name: 'Oganesson', mass: '(294)', category: 'unknown', group: 18, period: 7, electron: '[Rn] 5f¹⁴ 6d¹⁰ 7s² 7p⁶', electronegativity: null, density: 5.0, melt: null, boil: null },
+                
+                // Lanthanides
+                { number: 58, symbol: 'Ce', name: 'Cerium', mass: '140.12', category: 'lanthanide', group: null, period: 6, electron: '[Xe] 4f¹ 5d¹ 6s²', electronegativity: 1.12, density: 6.77, melt: 1068, boil: 3716 },
+                { number: 59, symbol: 'Pr', name: 'Praseodymium', mass: '140.91', category: 'lanthanide', group: null, period: 6, electron: '[Xe] 4f³ 6s²', electronegativity: 1.13, density: 6.77, melt: 1208, boil: 3793 },
+                { number: 60, symbol: 'Nd', name: 'Neodymium', mass: '144.24', category: 'lanthanide', group: null, period: 6, electron: '[Xe] 4f⁴ 6s²', electronegativity: 1.14, density: 7.01, melt: 1297, boil: 3347 },
+                { number: 61, symbol: 'Pm', name: 'Promethium', mass: '(145)', category: 'lanthanide', group: null, period: 6, electron: '[Xe] 4f⁵ 6s²', electronegativity: 1.13, density: 7.26, melt: 1315, boil: 3273 },
+                { number: 62, symbol: 'Sm', name: 'Samarium', mass: '150.36', category: 'lanthanide', group: null, period: 6, electron: '[Xe] 4f⁶ 6s²', electronegativity: 1.17, density: 7.52, melt: 1345, boil: 2067 },
+                { number: 63, symbol: 'Eu', name: 'Europium', mass: '151.96', category: 'lanthanide', group: null, period: 6, electron: '[Xe] 4f⁷ 6s²', electronegativity: 1.2, density: 5.24, melt: 1099, boil: 1802 },
+                { number: 64, symbol: 'Gd', name: 'Gadolinium', mass: '157.25', category: 'lanthanide', group: null, period: 6, electron: '[Xe] 4f⁷ 5d¹ 6s²', electronegativity: 1.2, density: 7.90, melt: 1585, boil: 3546 },
+                { number: 65, symbol: 'Tb', name: 'Terbium', mass: '158.93', category: 'lanthanide', group: null, period: 6, electron: '[Xe] 4f⁹ 6s²', electronegativity: 1.2, density: 8.23, melt: 1629, boil: 3503 },
+                { number: 66, symbol: 'Dy', name: 'Dysprosium', mass: '162.50', category: 'lanthanide', group: null, period: 6, electron: '[Xe] 4f¹⁰ 6s²', electronegativity: 1.22, density: 8.55, melt: 1680, boil: 2840 },
+                { number: 67, symbol: 'Ho', name: 'Holmium', mass: '164.93', category: 'lanthanide', group: null, period: 6, electron: '[Xe] 4f¹¹ 6s²', electronegativity: 1.23, density: 8.80, melt: 1734, boil: 2993 },
+                { number: 68, symbol: 'Er', name: 'Erbium', mass: '167.26', category: 'lanthanide', group: null, period: 6, electron: '[Xe] 4f¹² 6s²', electronegativity: 1.24, density: 9.07, melt: 1802, boil: 3141 },
+                { number: 69, symbol: 'Tm', name: 'Thulium', mass: '168.93', category: 'lanthanide', group: null, period: 6, electron: '[Xe] 4f¹³ 6s²', electronegativity: 1.25, density: 9.32, melt: 1818, boil: 2223 },
+                { number: 70, symbol: 'Yb', name: 'Ytterbium', mass: '173.05', category: 'lanthanide', group: null, period: 6, electron: '[Xe] 4f¹⁴ 6s²', electronegativity: 1.1, density: 6.90, melt: 1097, boil: 1469 },
+                { number: 71, symbol: 'Lu', name: 'Lutetium', mass: '174.97', category: 'lanthanide', group: null, period: 6, electron: '[Xe] 4f¹⁴ 5d¹ 6s²', electronegativity: 1.27, density: 9.84, melt: 1925, boil: 3675 },
+                
+                // Actinides
+                { number: 90, symbol: 'Th', name: 'Thorium', mass: '232.04', category: 'actinide', group: null, period: 7, electron: '[Rn] 6d² 7s²', electronegativity: 1.3, density: 11.72, melt: 2023, boil: 5061 },
+                { number: 91, symbol: 'Pa', name: 'Protactinium', mass: '231.04', category: 'actinide', group: null, period: 7, electron: '[Rn] 5f² 6d¹ 7s²', electronegativity: 1.5, density: 15.37, melt: 1841, boil: 4300 },
+                { number: 92, symbol: 'U', name: 'Uranium', mass: '238.03', category: 'actinide', group: null, period: 7, electron: '[Rn] 5f³ 6d¹ 7s²', electronegativity: 1.38, density: 19.1, melt: 1405.3, boil: 4404 },
+                { number: 93, symbol: 'Np', name: 'Neptunium', mass: '(237)', category: 'actinide', group: null, period: 7, electron: '[Rn] 5f⁴ 6d¹ 7s²', electronegativity: 1.36, density: 20.45, melt: 917, boil: 4273 },
+                { number: 94, symbol: 'Pu', name: 'Plutonium', mass: '(244)', category: 'actinide', group: null, period: 7, electron: '[Rn] 5f⁶ 7s²', electronegativity: 1.28, density: 19.84, melt: 912.5, boil: 3501 },
+                { number: 95, symbol: 'Am', name: 'Americium', mass: '(243)', category: 'actinide', group: null, period: 7, electron: '[Rn] 5f⁷ 7s²', electronegativity: 1.13, density: 13.69, melt: 1449, boil: 2880 },
+                { number: 96, symbol: 'Cm', name: 'Curium', mass: '(247)', category: 'actinide', group: null, period: 7, electron: '[Rn] 5f⁷ 6d¹ 7s²', electronegativity: 1.28, density: 13.51, melt: 1613, boil: 3383 },
+                { number: 97, symbol: 'Bk', name: 'Berkelium', mass: '(247)', category: 'actinide', group: null, period: 7, electron: '[Rn] 5f⁹ 7s²', electronegativity: 1.3, density: 14.79, melt: 1259, boil: 2900 },
+                { number: 98, symbol: 'Cf', name: 'Californium', mass: '(251)', category: 'actinide', group: null, period: 7, electron: '[Rn] 5f¹⁰ 7s²', electronegativity: 1.3, density: 15.1, melt: 1173, boil: 1743 },
+                { number: 99, symbol: 'Es', name: 'Einsteinium', mass: '(252)', category: 'actinide', group: null, period: 7, electron: '[Rn] 5f¹¹ 7s²', electronegativity: 1.3, density: 8.84, melt: 1133, boil: 1269 },
+                { number: 100, symbol: 'Fm', name: 'Fermium', mass: '(257)', category: 'actinide', group: null, period: 7, electron: '[Rn] 5f¹² 7s²', electronegativity: 1.3, density: 9.7, melt: 1800, boil: null },
+                { number: 101, symbol: 'Md', name: 'Mendelevium', mass: '(258)', category: 'actinide', group: null, period: 7, electron: '[Rn] 5f¹³ 7s²', electronegativity: 1.3, density: 10.3, melt: 1100, boil: null },
+                { number: 102, symbol: 'No', name: 'Nobelium', mass: '(259)', category: 'actinide', group: null, period: 7, electron: '[Rn] 5f¹⁴ 7s²', electronegativity: 1.3, density: 9.9, melt: 1100, boil: null },
+                { number: 103, symbol: 'Lr', name: 'Lawrencium', mass: '(266)', category: 'actinide', group: null, period: 7, electron: '[Rn] 5f¹⁴ 7s² 7p¹', electronegativity: 1.3, density: 15.6, melt: 1900, boil: null }
+            ];
+
+            // Get DOM elements
+            const periodicTable = document.querySelector('.periodic-table');
+            const lanthanideActinideContainer = document.querySelector('.lanthanide-actinide-container');
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const searchInput = document.getElementById('searchInput');
+
+            // Function to create an element box
+            function createElementBox(element) {
+                const elementBox = document.createElement('div');
+                // Define hover color classes for each category
+                const hoverColors = {
+                    'alkali-metal': 'hover:bg-red-200',
+                    'alkaline-earth': 'hover:bg-orange-200',
+                    'transition-metal': 'hover:bg-blue-200',
+                    'post-transition-metal': 'hover:bg-green-200',
+                    'metalloid': 'hover:bg-indigo-200',
+                    'nonmetal': 'hover:bg-purple-200',
+                    'noble-gas': 'hover:bg-pink-200',
+                    'lanthanide': 'hover:bg-yellow-200',
+                    'actinide': 'hover:bg-yellow-300',
+                    'unknown': 'hover:bg-gray-200'
+                };
+                // Info card hover color classes
+                const infoHoverColors = {
+                    'alkali-metal': 'group-hover:bg-red-200',
+                    'alkaline-earth': 'group-hover:bg-orange-200',
+                    'transition-metal': 'group-hover:bg-blue-200',
+                    'post-transition-metal': 'group-hover:bg-green-200',
+                    'metalloid': 'group-hover:bg-indigo-200',
+                    'nonmetal': 'group-hover:bg-purple-200',
+                    'noble-gas': 'group-hover:bg-pink-200',
+                    'lanthanide': 'group-hover:bg-yellow-200',
+                    'actinide': 'group-hover:bg-yellow-300',
+                    'unknown': 'group-hover:bg-gray-200'
+                };
+                const hoverClass = hoverColors[element.category] || 'hover:bg-gray-200';
+                const infoHoverClass = infoHoverColors[element.category] || 'group-hover:bg-gray-200';
+                // Add group class for group-hover to work
+                elementBox.className = `element group relative rounded-md p-1 text-center h-16 flex flex-col justify-center backdrop-blur-md bg-white/40 border border-gray-200 transition-colors duration-200 ${hoverClass}`;
+                elementBox.dataset.category = element.category;
+                elementBox.dataset.name = element.name.toLowerCase();
+                elementBox.dataset.symbol = element.symbol.toLowerCase();
+                elementBox.dataset.number = element.number;
+
+                // Position the element in the table
+                if (element.group && element.period) {
+                    const gridColumn = element.group;
+                    const gridRow = element.period;
+                    elementBox.style.gridColumn = gridColumn;
+                    elementBox.style.gridRow = gridRow;
+                }
+
+                elementBox.innerHTML = `
+        <div class="text-xs font-bold">${element.number}</div>
+        <div class="text-xl font-bold">${element.symbol}</div>
+        <div class="text-xs truncate">${element.name}</div>
+        
+        <div class="info-card absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-64 bg-white/70 rounded-lg shadow-xl z-50 p-4 border border-gray-200 backdrop-blur-md transition-colors duration-200 pointer-events-none opacity-0 group-hover:opacity-100 ${infoHoverClass}">
+            <div class="flex justify-between items-start mb-2">
+                <div>
+                    <h3 class="text-lg font-bold">${element.name}</h3>
+                    <p class="text-sm text-gray-600">${element.symbol} • ${element.number}</p>
+                </div>
+                <span class="px-2 py-1 text-xs rounded-full border border-gray-300 bg-white/60">${element.category.replace('-', ' ')}</span>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-2 text-sm">
+                <div>
+                    <p class="font-semibold">Atomic Mass:</p>
+                    <p>${element.mass}</p>
+                </div>
+                <div>
+                    <p class="font-semibold">Electron Config:</p>
+                    <p>${element.electron}</p>
+                </div>
+                <div>
+                    <p class="font-semibold">Electronegativity:</p>
+                    <p>${element.electronegativity || '—'}</p>
+                </div>
+                <div>
+                    <p class="font-semibold">Density (g/cm³):</p>
+                    <p>${element.density}</p>
+                </div>
+                <div>
+                    <p class="font-semibold">Melting Point (K):</p>
+                    <p>${element.melt || '—'}</p>
+                </div>
+                <div>
+                    <p class="font-semibold">Boiling Point (K):</p>
+                    <p>${element.boil || '—'}</p>
+                </div>
+            </div>
+        </div>
+    `;
+    
+                return elementBox;
+            }
+
+            // Function to render the periodic table
+            function renderPeriodicTable() {
+                // Clear existing elements
+                periodicTable.innerHTML = '';
+                lanthanideActinideContainer.innerHTML = '';
+
+                // (Optional) Remove placeholders for lanthanides and actinides if not needed
+                // If you want to keep the main table clean, comment out or remove the placeholder code
+
+                // Add elements to the main table
+                elements.forEach(element => {
+                    if (element.group && element.period) {
+                        const elementBox = createElementBox(element);
+                        periodicTable.appendChild(elementBox);
+                    }
+                });
+
+                // Add lanthanides and actinides to their container as a 2-row, 15-column grid
+                const lanthanides = elements.filter(e => e.category === 'lanthanide');
+                const actinides = elements.filter(e => e.category === 'actinide');
+
+                // Set grid style for 2 rows and 15 columns
+                lanthanideActinideContainer.style.display = 'grid';
+                lanthanideActinideContainer.style.gridTemplateColumns = 'repeat(15, minmax(0, 1fr))';
+                lanthanideActinideContainer.style.gridTemplateRows = 'repeat(2, minmax(0, 1fr))';
+                lanthanideActinideContainer.innerHTML = '';
+
+                // Add lanthanides to first row
+                lanthanides.forEach((element, idx) => {
+                    const elementBox = createElementBox(element);
+                    elementBox.style.gridColumn = (idx + 1);
+                    elementBox.style.gridRow = 1;
+                    lanthanideActinideContainer.appendChild(elementBox);
+                });
+
+                // Add actinides to second row
+                actinides.forEach((element, idx) => {
+                    const elementBox = createElementBox(element);
+                    elementBox.style.gridColumn = (idx + 1);
+                    elementBox.style.gridRow = 2;
+                    lanthanideActinideContainer.appendChild(elementBox);
+                });
+            }
+
+            // Filter elements by category
+            function filterElements(category) {
+                const elements = document.querySelectorAll('.element');
+
+                // Define color classes for each category
+                const categoryColors = {
+                    'alkali-metal': 'bg-red-200 border-red-400',
+                    'alkaline-earth': 'bg-orange-200 border-orange-400',
+                    'transition-metal': 'bg-blue-200 border-blue-400',
+                    'post-transition-metal': 'bg-green-200 border-green-400',
+                    'metalloid': 'bg-indigo-200 border-indigo-400',
+                    'nonmetal': 'bg-purple-200 border-purple-400',
+                    'noble-gas': 'bg-pink-200 border-pink-400',
+                    'lanthanide': 'bg-yellow-200 border-yellow-400',
+                    'actinide': 'bg-yellow-300 border-yellow-500'
+                };
+
+                elements.forEach(element => {
+                    // Remove all color classes first
+                    element.className = element.className
+                        .replace(/bg-\w+-\d+\s?/g, '')
+                        .replace(/border-\w+-\d+\s?/g, '');
+
+                    if (category === 'all' || element.dataset.category === category) {
+                        element.style.display = 'flex';
+
+                        // Add color only if a specific filter is active
+                        if (category !== 'all' && element.dataset.category === category && categoryColors[category]) {
+                            element.className += ' ' + categoryColors[category];
+                        }
+                    } else {
+                        element.style.display = 'none';
+                    }
+                });
+            }
+
+            // Search elements
+            function searchElements(query) {
+                const elements = document.querySelectorAll('.element');
+                
+                if (!query) {
+                    elements.forEach(element => element.style.display = 'flex');
+                    return;
+                }
+                
+                elements.forEach(element => {
+                    const name = element.dataset.name;
+                    const symbol = element.dataset.symbol;
+                    const number = element.dataset.number;
+                    
+                    if (name.includes(query) || symbol.includes(query) || number.includes(query)) {
+                        element.style.display = 'flex';
+                    } else {
+                        element.style.display = 'none';
+                    }
+                });
+            }
+
+            // Initialize the periodic table
+            renderPeriodicTable();
+
+            // Responsive info-card positioning
+            document.querySelectorAll('.periodic-table, .lanthanide-actinide-container').forEach(table => {
+                table.addEventListener('mouseover', function(e) {
+                    const elementBox = e.target.closest('.element');
+                    if (!elementBox) return;
+                    const infoCard = elementBox.querySelector('.info-card');
+                    if (!infoCard) return;
+                    // Reset to default
+                    infoCard.style.left = '50%';
+                    infoCard.style.right = '';
+                    infoCard.style.transform = 'translateX(-50%)';
+                    infoCard.style.top = '100%';
+                    infoCard.style.bottom = '';
+
+                    // Get bounding rectangles
+                    const cardRect = infoCard.getBoundingClientRect();
+                    const containerRect = table.getBoundingClientRect();
+
+                    // If info-card overflows right
+                    if (cardRect.right > containerRect.right) {
+                        infoCard.style.left = 'auto';
+                        infoCard.style.right = '0';
+                        infoCard.style.transform = 'translateX(0)';
+                    }
+                    // If info-card overflows left
+                    if (cardRect.left < containerRect.left) {
+                        infoCard.style.left = '0';
+                        infoCard.style.right = 'auto';
+                        infoCard.style.transform = 'translateX(0)';
+                    }
+
+                    // If in lanthanide/actinide container and info-card overflows bottom, shift upward
+                    if (
+                        table.classList.contains('lanthanide-actinide-container') &&
+                        cardRect.bottom > containerRect.bottom
+                    ) {
+                        infoCard.style.top = 'auto';
+                        infoCard.style.bottom = '100%';
+                    }
+
+                    // If in period 7 (francium row) and info-card overflows bottom, shift upward
+                    if (
+                        table.classList.contains('periodic-table') &&
+                        elementBox.style.gridRow == "7" &&
+                        cardRect.bottom > containerRect.bottom
+                    ) {
+                        infoCard.style.top = 'auto';
+                        infoCard.style.bottom = '100%';
+                    }
+                });
+            });
+
+            // Add event listeners for filter buttons
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    filterElements(this.dataset.category);
+                });
+            });
+
+            // Add event listener for search input
+            searchInput.addEventListener('input', function() {
+                const query = this.value.toLowerCase().trim();
+                searchElements(query);
+                
+                // Reset filter buttons when searching
+                filterButtons.forEach(btn => {
+                    if (btn.dataset.category === 'all') {
+                        btn.classList.add('active');
+                    } else {
+                        btn.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
+
+    
+</body>
+</html>
